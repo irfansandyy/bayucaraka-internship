@@ -1,0 +1,69 @@
+{
+    "version": 1,
+    "author": "Irfan Sandy",
+    "editor": "wokwi",
+    "parts": [
+      { 
+        "type": "wokwi-arduino-uno", 
+        "id": "uno", 
+        "top": 0, 
+        "left": 0, 
+        "attrs": {} 
+      },
+      {
+        "type": "wokwi-pir-motion-sensor",
+        "id": "pir1",
+        "top": 15,
+        "left": 300,
+        "attrs": {}
+      },
+      { 
+        "type": "wokwi-74hc595", 
+        "id": "sr1", 
+        "top": -40, 
+        "left": 170, 
+        "attrs": {} 
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": -70,
+        "left": 110,
+        "attrs": { 
+          "color": "red" 
+        }
+      },
+      { 
+        "type": "wokwi-7segment", 
+        "id": "sevseg1", 
+        "top": -130, 
+        "left": 190, 
+        "attrs": {} 
+      }
+    ],
+    "connections": [
+      [ "led1:A", "uno:3", "green", [ "v0" ] ],
+      [ "led1:C", "uno:GND.1", "green", [ "v0" ] ],
+      [ "pir1:VCC", "uno:5V", "red", [ "h0" ] ],
+      [ "pir1:GND", "uno:GND.2", "black", [ "h0" ] ],
+      [ "pir1:OUT", "uno:2", "green", [ "h0" ] ],
+      [ "sr1:OE", "uno:GND.1", "black", [ "v0" ] ],
+      [ "sr1:MR", "uno:5V", "red", [ "v0" ] ],
+      [ "sr1:GND", "uno:GND.1", "black", [ "v0" ] ],
+      [ "sr1:VCC", "uno:5V", "red", [ "v0" ] ],
+      [ "sr1:DS", "uno:4", "green", [ "v0" ] ],
+      [ "sr1:SHCP", "uno:5", "green", [ "v0" ] ],
+      [ "sr1:STCP", "uno:6", "green", [ "v0" ] ],
+      [ "sevseg1:A", "sr1:Q0", "green", [ "v0" ] ],
+      [ "sevseg1:B", "sr1:Q1", "green", [ "v0" ] ],
+      [ "sevseg1:C", "sr1:Q2", "green", [ "v0" ] ],
+      [ "sevseg1:D", "sr1:Q3", "green", [ "v0" ] ],
+      [ "sevseg1:E", "sr1:Q4", "green", [ "v0" ] ],
+      [ "sevseg1:F", "sr1:Q5", "green", [ "v0" ] ],
+      [ "sevseg1:G", "sr1:Q6", "green", [ "v0" ] ],
+      [ "sevseg1:DP", "sr1:Q7", "green", [ "v0" ] ],
+      [ "sevseg1:COM.1", "uno:5V", "red", [ "h0" ] ],
+      [ "sevseg1:COM.2", "uno:5V", "red", [ "h0" ] ]
+    ],
+    "dependencies": {}
+  }
